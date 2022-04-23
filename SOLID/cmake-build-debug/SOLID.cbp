@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="SOLID"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DIP">
+				<Option output="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/DIP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 DIP"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="DIP/fast">
+				<Option output="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/DIP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 DIP/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SRP">
+				<Option output="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/SRP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 SRP"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="SRP/fast">
+				<Option output="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/SRP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 SRP/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ISP">
+				<Option output="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/ISP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 ISP"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="ISP/fast">
+				<Option output="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/ISP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 ISP/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="OCP">
+				<Option output="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/OCP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 OCP"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="OCP/fast">
+				<Option output="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/OCP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 OCP/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="LSP">
+				<Option output="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/LSP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 LSP"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="LSP/fast">
+				<Option output="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/LSP" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/9"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/9"/>
+					<Add directory="/usr/include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 LSP/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/roma/codingConfig/DesignPattern/SOLID/Creational-DIP.cpp">
+			<Option target="DIP"/>
+		</Unit>
+		<Unit filename="/home/roma/codingConfig/DesignPattern/SOLID/Creational-ISP.cpp">
+			<Option target="ISP"/>
+		</Unit>
+		<Unit filename="/home/roma/codingConfig/DesignPattern/SOLID/Creational-LSP.cpp">
+			<Option target="LSP"/>
+		</Unit>
+		<Unit filename="/home/roma/codingConfig/DesignPattern/SOLID/Creational-OCP.cpp">
+			<Option target="OCP"/>
+		</Unit>
+		<Unit filename="/home/roma/codingConfig/DesignPattern/SOLID/Creational-SRP.cpp">
+			<Option target="SRP"/>
+		</Unit>
+		<Unit filename="/home/roma/codingConfig/DesignPattern/SOLID/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

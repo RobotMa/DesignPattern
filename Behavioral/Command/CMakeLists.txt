@@ -1,0 +1,4 @@
+add_executable(command_composite command_composite.cpp)
+
+add_executable(CommandCodingExercise CommandCodingExercise.cpp)
+target_link_libraries(CommandCodingExercise CONAN_PKG::gtest)

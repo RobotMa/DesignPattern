@@ -1,0 +1,116 @@
+#include <vector>
+
+#include <gtest/gtest.h>
+
+using namespace std;
+
+struct Creature
+{
+    int attack_;
+    int health_;
+
+    Creature(int attack, int health)
+        : attack_(attack)
+        , health_(health)
+    {}
+};
+
+struct CardGame
+{
+    virtual ~CardGame() = default;
+
+    vector<Creature> creatures_;
+
+    explicit CardGame(const vector<Creature>& creatures)
+        : creatures_(creatures)
+    {}
+
+    // return -1 if there is no clear winner
+    int combat(int creature1, int creature2)
+    {
+        Creature& first  = creatures_[static_cast<unsigned long>(creature1)];
+        Creature& second = creatures_[static_cast<unsigned long>(creature2)];
+        hit(first, second);
+        hit(second, first);
+        bool first_alive  = first.health_ > 0;
+        bool second_alive = second.health_ > 0;
+        if (first_alive == second_alive) {
+            return -1;
+        }
+        return first_alive ? creature1 : creature2;
+    }
+
+    virtual void hit(Creature& attacker, Creature& other) = 0;
+};
+
+struct TemporaryCardDamageGame : CardGame
+{
+    explicit TemporaryCardDamageGame(const vector<Creature>& creatures)
+        : CardGame(creatures)
+    {}
+
+    void hit(Creature& attacker, Creature& other) override
+    {
+        auto old_health = other.health_;
+        other.health_ -= attacker.attack_;
+        if (other.health_ > 0)
+            other.health_ = old_health;
+    }
+};
+
+struct PermanentCardDamageGame : CardGame
+{
+    explicit PermanentCardDamageGame(const vector<Creature>& creatures)
+        : CardGame(creatures)
+    {}
+
+    void hit(Creature& attacker, Creature& other) override { other.health_ -= attacker.attack_; }
+};
+
+namespace {
+
+class Evaluate : public ::testing::Test
+{};
+
+TEST_F(Evaluate, ImpasseTest)
+{
+    Creature                c1{1, 2};
+    Creature                c2{1, 2};
+    TemporaryCardDamageGame game({c1, c2});
+    ASSERT_EQ(-1, game.combat(0, 1));
+    ASSERT_EQ(-1, game.combat(0, 1));
+}
+
+TEST_F(Evaluate, TemporaryMurderTest)
+{
+    Creature                c1{1, 1};
+    Creature                c2{2, 2};
+    TemporaryCardDamageGame game({c1, c2});
+    ASSERT_EQ(1, game.combat(0, 1));
+}
+
+TEST_F(Evaluate, DoubleMurderTest)
+{
+    Creature                c1{2, 2};
+    Creature                c2{2, 2};
+    TemporaryCardDamageGame game({c1, c2});
+    ASSERT_EQ(-1, game.combat(0, 1)) << "The expectation here is that two 2/2 creatures_ kill each other";
+}
+
+TEST_F(Evaluate, PermanentDamageDeathTest)
+{
+    Creature                c1{1, 2};
+    Creature                c2{1, 3};
+    PermanentCardDamageGame game({c1, c2});
+    ASSERT_EQ(-1, game.combat(0, 1)) << "1/2 vs 1/3 should have no winner after first round of combat";
+    ASSERT_EQ(1, game.combat(0, 1)) << "1/1 vs 1/2 here, so winner should be = 1";
+}
+
+} // namespace
+
+int main(int ac, char* av[])
+{
+    //::testing::GTEST_FLAG(catch_exceptions) = false;
+    testing::InitGoogleTest(&ac, av);
+    return RUN_ALL_TESTS();
+}

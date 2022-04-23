@@ -1,0 +1,37 @@
+## Cast
+1. What are C-style cast and C++ style casts? Can give examples.
+ANS :
+* C-style casts : int y = (int)3.5;
+* C++-style casts : const auto y = static_cast<int>(3.5);
+
+2. Why one should avoid C-style cast?
+ANS :
+* C-style cast is ambiguous. Sometimes one is doing conversion (int)3.5, and sometimes one is doing cast (int)"hello";
+
+2. Explain the difference between static_cast and dynamic_cast.
+ANS :
+* static_cast casts one type into the other at compile time. Conversions are checked at compile time, but no run-time type check is performed that would prevent conversion between incompatible types such as pointers.
+* dynamic_cast casts one type into the other at runtime.
+
+3. Is there a code smell in terms of cast? Why?
+ANS :
+* Run-time type identification (RTTI) or dynamic_cast should be avoided.
+* Undisciplined use of RTTI makes code hard to maintain, especially when it leads to a long type-based decision tree or switch statements scattered around the code.
+
+4. Can you name other casts that you know?
+* const_cast and reinterpret_cast.
+
+## Coding Practice
+1. What do you consider good coding practice regarding the following?
+* Naming conventions.
+* Length of functions.
+* Number of parameters in functions.
+* Use of the const keyword
+
+## Design Pattern
+1. What design patterns are you familiar with?
+ANS :
+* Singleton, Factory, Abstract Factory, Observer, Visitor, Adapter, Decorator, etc.
+
+2. Can you explain what is PIMPL idiom? What is the benefit of PIMPL idiom? (Bonus) Is it easy to unit-test PIMPL pattern? Why or why not?
+* PIMPL : pointer to the implementation.

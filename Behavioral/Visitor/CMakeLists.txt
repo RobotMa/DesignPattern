@@ -1,0 +1,9 @@
+add_executable(VisitorIntrusive VisitorIntrusive.cpp)
+add_executable(VisitorReflective VisitorReflective.cpp)
+add_executable(VisitorDoubleDispatch VisitorDouble.cpp)
+add_executable(VisitorAcyclic VisitorAcyclic.cpp)
+add_executable(MultiMethods MultiMethods.cpp)
+add_executable(std_visit std_visit.cpp)
+
+add_executable(VisitorCodingExercise VisitorCodingExercise.cpp)
+target_link_libraries(VisitorCodingExercise CONAN_PKG::gtest)

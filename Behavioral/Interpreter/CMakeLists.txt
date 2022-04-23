@@ -1,0 +1,7 @@
+add_executable(ParsingAndLexing ParsingAndLexing.cpp)
+target_link_libraries(ParsingAndLexing CONAN_PKG::boost)
+
+add_executable(InterpreterCodingExercise IntepreterCodingExercise.cpp)
+target_link_libraries(InterpreterCodingExercise CONAN_PKG::gtest)
+
+add_executable(Lexing Lexing.cpp)
