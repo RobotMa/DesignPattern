@@ -3,15 +3,9 @@ on: [push]
 jobs:
   Build-and-Test:
     runs-on: ubuntu-20.04
-    container: gcc
+    container: conanio/gcc9
     steps:
       - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: |
-          apt update
-          apt-get install -y ninja-build
-          apt install python3-pip
-          pip install conan
       - name: Check Environement
         run: pwd && echo $USER
       - name: Compile
