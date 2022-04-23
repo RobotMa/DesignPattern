@@ -20,13 +20,13 @@ struct base::EnumTrait<MyEnum>
 {
     static constexpr std::array namedEnumerators{
       base::Enumerator{MyEnum::first, "first"},
-      base::Enumerator{MyEnum::first, "second"},
-      base::Enumerator{MyEnum::first, "third"},
+      base::Enumerator{MyEnum::second, "second"},
+      base::Enumerator{MyEnum::third, "third"},
     };
 };
 
 int main()
 {
-    std::cout << base::EnumTrait<MyEnum>::namedEnumerators[static_cast<unsigned long>(MyEnum::first)] << '\n';
-    return 0;
+  std::cout << base::EnumTrait<MyEnum>::namedEnumerators[static_cast<unsigned long>(MyEnum::first)].name << '\n';
+  return 0;
 }

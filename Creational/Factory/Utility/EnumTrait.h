@@ -17,9 +17,9 @@ struct Enumerator {
 };
 
 template<class EnumType>
-Enumerator(EnumType, std::string_view) -> Enumerator<EnumType>
+Enumerator(EnumType, std::string_view) -> Enumerator<EnumType>;
 
 template<class T>
-struct EnumTrait;
+struct EnumTrait{};
 }
 
