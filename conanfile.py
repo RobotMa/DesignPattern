@@ -25,7 +25,7 @@ class DesignPattern(ConanFile):
 
     requires = (
         "gtest/1.10.0",
-        "boost/1.75.0",
+        "boost/1.78.0",
         "fmt/7.1.3",
         "spdlog/1.8.2",
         "cpprestsdk/2.10.18",

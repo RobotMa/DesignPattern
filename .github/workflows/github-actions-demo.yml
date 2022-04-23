@@ -3,11 +3,13 @@ on: [push]
 jobs:
   Build-and-Test:
     runs-on: ubuntu-20.04
+    container: gcc
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
         run: |
-          sudo apt-get install -y ninja-build
+          apt update
+          apt-get install -y ninja-build
           pip install conan
       - name: Check Environement
         run: pwd && echo $USER
