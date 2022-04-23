@@ -10,6 +10,7 @@ jobs:
         run: |
           apt update
           apt-get install -y ninja-build
+          apt install python3-pip
           pip install conan
       - name: Check Environement
         run: pwd && echo $USER
