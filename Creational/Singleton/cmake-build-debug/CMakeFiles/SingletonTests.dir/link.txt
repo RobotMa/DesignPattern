@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -rdynamic CMakeFiles/SingletonTests.dir/SingletonTests.cpp.o -o SingletonTests  -lCONAN_PKG::gtest -lCONAN_PKG::boost 

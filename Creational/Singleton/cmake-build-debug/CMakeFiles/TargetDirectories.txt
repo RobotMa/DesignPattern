@@ -1,5 +1,0 @@
-/home/roma/codingConfig/DesignPattern/Creational/Singleton/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/roma/codingConfig/DesignPattern/Creational/Singleton/cmake-build-debug/CMakeFiles/main.dir
-/home/roma/codingConfig/DesignPattern/Creational/Singleton/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/roma/codingConfig/DesignPattern/Creational/Singleton/cmake-build-debug/CMakeFiles/Multiton.dir
-/home/roma/codingConfig/DesignPattern/Creational/Singleton/cmake-build-debug/CMakeFiles/SingletonTests.dir

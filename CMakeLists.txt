@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16..3.23)  # CMake version check
+cmake_minimum_required(VERSION 3.17)  # CMake version check
 project(DesignPattern)
 
 set(CMAKE_CXX_STANDARD 17)
