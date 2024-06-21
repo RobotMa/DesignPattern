@@ -1,10 +1,7 @@
 #include "DrinkFactory.h"
 #include "HotDrink.h"
 #include <iostream>
-#include <map>
 #include <memory>
-
-using namespace std;
 
 unique_ptr<HotDrink> make_drink(DrinkType drinkType)
 {
@@ -12,12 +9,12 @@ unique_ptr<HotDrink> make_drink(DrinkType drinkType)
 
     switch (drinkType) {
         case DrinkType::TEA: {
-            drink = make_unique<Tea>();
+            drink = std::make_unique<Tea>();
             drink->prepare(200);
             break;
         }
         case DrinkType::COFFEE: {
-            drink = make_unique<Coffee>();
+            drink = std::make_unique<Coffee>();
             drink->prepare(50);
             break;
         }
@@ -31,7 +28,7 @@ int main()
     auto d = make_drink(DrinkType::TEA);
 
     DrinkFactory df;
-    df.make_drink(DrinkType::COFFEE);
+    const auto coffee = df.make_drink(DrinkType::COFFEE);
 
     getchar();
     return 0;
