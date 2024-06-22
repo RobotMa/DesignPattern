@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.17)  # CMake version check
 project(DesignPattern)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
@@ -29,7 +29,7 @@ endif ()
 
 add_compile_options(
         -Wall
-#        -Werror
+        #        -Werror
         -Wextra
         -Wpedantic
         -Wshadow

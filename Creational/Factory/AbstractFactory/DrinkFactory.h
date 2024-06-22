@@ -8,44 +8,40 @@
 
 struct HotDrink;
 
-class DrinkFactory
-{
+class DrinkFactory {
+public:
+  DrinkFactory() {
+    hotFactories_[DrinkType::COFFEE] = make_unique<CoffeeFactory>();
+    hotFactories_[DrinkType::TEA] = make_unique<TeaFactory>();
+  }
+
+  unique_ptr<HotDrink> make_drink(DrinkType drinkType) {
+    auto drink = hotFactories_[drinkType]->make();
+    drink->prepare(200); // oops!
+    return drink;
+  }
+
 private:
-    map<DrinkType, unique_ptr<HotDrinkFactory>> hotFactories_;
-
-public:
-    DrinkFactory()
-    {
-        hotFactories_[DrinkType::COFFEE] = make_unique<CoffeeFactory>();
-        hotFactories_[DrinkType::TEA]    = make_unique<TeaFactory>();
-    }
-
-    unique_ptr<HotDrink> make_drink(DrinkType drinkType)
-    {
-        auto drink = hotFactories_[drinkType]->make();
-        drink->prepare(200); // oops!
-        return drink;
-    }
+  map<DrinkType, unique_ptr<HotDrinkFactory>> hotFactories_;
 };
 
-class DrinkWithVolumeFactory
-{
-    map<string, function<unique_ptr<HotDrink>()>> factories;
-
+class DrinkWithVolumeFactory {
 public:
-    DrinkWithVolumeFactory()
-    {
-        factories["tea"] = [] {
-            auto tea = make_unique<Tea>();
-            tea->prepare(200);
-            return tea;
-        };
-    }
+  DrinkWithVolumeFactory() {
+    factories["tea"] = [] {
+      auto tea = make_unique<Tea>();
+      tea->prepare(200);
+      return tea;
+    };
+  }
 
-    unique_ptr<HotDrink> make_drink(const string& name);
+  unique_ptr<HotDrink> make_drink(const string &name);
+
+private:
+  map<string, function<unique_ptr<HotDrink>()>> factories;
 };
 
-inline unique_ptr<HotDrink> DrinkWithVolumeFactory::make_drink(const string& name)
-{
-    return factories[name]();
+inline unique_ptr<HotDrink>
+DrinkWithVolumeFactory::make_drink(const string &name) {
+  return factories[name]();
 }
