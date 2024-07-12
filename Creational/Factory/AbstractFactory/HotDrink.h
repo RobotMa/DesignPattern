@@ -5,32 +5,25 @@
 
 using namespace std;
 
-enum class DrinkType : uint8_t
-{
-    TEA = 0,
-    COFFEE
+enum class DrinkType : uint8_t { TEA = 0, COFFEE };
+
+struct HotDrink {
+  virtual ~HotDrink() = default;
+
+  virtual void prepare(int volume) const = 0;
 };
 
-struct HotDrink
-{
-    virtual ~HotDrink() = default;
+struct Tea : HotDrink {
 
-    virtual void prepare(int volume) = 0;
+  void prepare(int volume) const override {
+    cout << "Take tea bag, boil water, pour " << volume << "ml, add some lemon"
+         << endl;
+  }
 };
 
-struct Tea : HotDrink
-{
-
-    void prepare(int volume) override
-    {
-        cout << "Take tea bag, boil water, pour " << volume << "ml, add some lemon" << endl;
-    }
-};
-
-struct Coffee : HotDrink
-{
-    void prepare(int volume) override
-    {
-        cout << "Grind some beans, boil water, pour " << volume << "ml, add cream, enjoy!" << endl;
-    }
+struct Coffee : HotDrink {
+  void prepare(int volume) const override {
+    cout << "Grind some beans, boil water, pour " << volume
+         << "ml, add cream, enjoy!" << endl;
+  }
 };

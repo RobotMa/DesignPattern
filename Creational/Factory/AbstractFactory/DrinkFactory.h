@@ -11,8 +11,8 @@ struct HotDrink;
 class DrinkFactory {
 public:
   DrinkFactory() {
-    hotFactories_[DrinkType::COFFEE] = make_unique<CoffeeFactory>();
-    hotFactories_[DrinkType::TEA] = make_unique<TeaFactory>();
+    hotFactories_[DrinkType::COFFEE] = std::make_unique<CoffeeFactory>();
+    hotFactories_[DrinkType::TEA] = std::make_unique<TeaFactory>();
   }
 
   unique_ptr<HotDrink> make_drink(DrinkType drinkType) {
@@ -22,7 +22,7 @@ public:
   }
 
 private:
-  map<DrinkType, unique_ptr<HotDrinkFactory>> hotFactories_;
+  std::unordered_map<DrinkType, std::unique_ptr<HotDrinkFactory>> hotFactories_;
 };
 
 class DrinkWithVolumeFactory {
@@ -35,13 +35,14 @@ public:
     };
   }
 
-  unique_ptr<HotDrink> make_drink(const string &name);
+  std::unique_ptr<HotDrink> make_drink(const std::string &name);
 
 private:
-  map<string, function<unique_ptr<HotDrink>()>> factories;
+  std::unordered_map<std::string, std::function<std::unique_ptr<HotDrink>()>>
+      factories;
 };
 
 inline unique_ptr<HotDrink>
-DrinkWithVolumeFactory::make_drink(const string &name) {
+DrinkWithVolumeFactory::make_drink(const std::string &name) {
   return factories[name]();
 }

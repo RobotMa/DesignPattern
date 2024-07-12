@@ -1,9 +1,8 @@
 #pragma once
 #include "HotDrinkFactory.h"
 
-struct TeaFactory : HotDrinkFactory
-{
-  unique_ptr<HotDrink> make() const override {
+struct TeaFactory : HotDrinkFactory {
+  auto make() -> std::unique_ptr<HotDrink> const override {
     return make_unique<Tea>();
   }
 };
