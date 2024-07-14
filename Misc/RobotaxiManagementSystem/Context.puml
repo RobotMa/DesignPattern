@@ -1,0 +1,31 @@
+@startuml
+!include  https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+LAYOUT_WITH_LEGEND()
+
+title System Context diagram for Internet Banking System
+
+Person(p1, "Passenger", "Primary Actor")
+
+Person(p2, "Dispatcher", "Secondary Actor")
+
+System(FMS, "Fleet Management System", "Robotaxi System")
+
+System_Ext(robo1, "Robotaxi [1]", "Secondary Actor")
+System_Ext(robo2, "Robotaxi [2]",  "Secondary Actor")
+System_Ext(robon, "Robotaxi [N]",  "Secondary Actor")
+
+
+Rel(p1, p2, "Request a ride", "phone call")
+Rel(p1, p2, "Cancel a ride", "phone call")
+
+Rel(p2, FMS, "Enter a ride request", "Console / Web")
+Rel(p2, FMS, "Remove a ride request", "Console / Web")
+
+Rel(FMS, robo1, "Association", "Dispatch a robotaxi")
+Rel(FMS, robo2, "Association", "Dispatch a robotaxi")
+Rel(FMS, robon, "Association", "Dispatch a robotaxi")
+
+
+@enduml
