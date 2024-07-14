@@ -11,6 +11,8 @@ Person(p2, "Dispatcher", "Secondary Actor")
 
 System(FMS, "Fleet Management System", "Robotaxi System")
 
+System_Ext(Map, "Map", "3rd party map")
+
 System_Ext(robo1, "Robotaxi [1]", "Secondary Actor")
 System_Ext(robo2, "Robotaxi [2]",  "Secondary Actor")
 System_Ext(robon, "Robotaxi [N]",  "Secondary Actor")
@@ -27,5 +29,7 @@ Rel(FMS, robon, "Assign/Cancel ...")
 Rel(FMS, robo1, "Query/Retrieve vehicle state")
 Rel(FMS, robo2, "Query/Retrieve ...")
 Rel(FMS, robon, "Query/Retrieve ...")
+
+Rel(FMS, Map, "Query/Retrieve map data")
 
 @enduml

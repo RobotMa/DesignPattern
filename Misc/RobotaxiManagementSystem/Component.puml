@@ -1,38 +1,42 @@
 @startuml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
-!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
-'!include C4_Container.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+!define DEVICONS https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/devicons
+!define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
+
+!include DEVICONS/msql_server.puml
+!include DEVICONS/java.puml
 
 LAYOUT_TOP_DOWN()
 LAYOUT_WITH_LEGEND()
 
-title System Context diagram for Internet Banking System
+title Component diagram for Fleet Management System
 
-Person(p1, "Passenger", "Primary Actor")
+Container(Web, "Web Application", "JavaScript", "Allow an authenticated user to view, enter and edit ride request information")
 
-Person(p2, "Dispatcher", "Secondary Actor")
-
-System(FMS, "Fleet Management System", "Robotaxi System")
-
-System_Ext(robo1, "Robotaxi [1]", "Secondary Actor")
-
-Rel(p1, p2, "Request a ride", "phone call")
-Rel(p1, p2, "Cancel a ride", "phone call")
-
-Rel(p2, FMS, "Enter a ride request", "Console / Web")
-Rel(p2, FMS, "Remove a ride request", "Console / Web")
-
-Rel(FMS, robo1, "Assign a job", "Cellular Network")
-Rel(FMS, robo1, "Cancel a job", "Cellular Network")
-
-Rel(FMS, robo1, "Query vehicle state", "Cellular")
-Rel(robo1, FMS, "Send vehicle state", "Cellular")
-
-System_Boundary() {
-    Container(FMS, "Fleet Management System", "Robotaxi System", "Java")
-    Container(robo1, "Robotaxi [1]", "Robotaxi System", "C++")
-    Container(robo2, "Robotaxi [2]", "Robotaxi System", "C++")
-    Container(robon, "Robotaxi [N]", "Robotaxi System", "C++")
+Boundary(API, "API Components") {
+    Component(Scheduler, "Scheduler", "C++", "Track and schedule ride requests using a priority queue-like mechanism")
+    Component(Router, "Router", "C++", "Generate a street segment level route for a vehicle for vehicle dispatch and time estimation")
+    Component(FST, "FleetStateTracker", "C++", "Query the vehicle state information that is local such as location, speed and operation stage")
+    Component(Dispatcher, "Dispatcher", "C++", "Call router and dispatch routes to the fleet")
 }
+ContainerDb(db, "Database", "Mongo DB", "Holds all data and metadata for passenger, ride, and vehicle", $sprite="msql_server")
+
+Boundary(b2, "Robotaxi Fleet") {
+    Component(robo1, "Robotaxi [No. 1]", "C++", "An autonomous driving system that can accept and execute ride requests")
+}
+
+Rel(Web, Scheduler, "Send ride request/change messages", "https")
+Rel(Scheduler, FST, "Read", "Vehicle state of each vehicle")
+Rel(FST, db, "Read/Write data", "JDBC")
+Rel(Scheduler, Dispatcher, "Send / Read", "A priority queue of ride requests / Time estimation")
+
+Rel(Dispatcher, Router, "Uses", "Street segment level route")
+
+Rel(Dispatcher, robo1, "Assign/Cancel a job", "Cellular")
+Rel(FST, robo1, "Query vehicle state", "Cellular")
+
+footer drawn with PlantUML v. %version() and C4-PlantUML v. C4Version()
 
 @enduml

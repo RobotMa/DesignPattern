@@ -5,6 +5,7 @@
 !define FONTAWESOME https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/master/font-awesome-5
 
 !include DEVICONS/msql_server.puml
+!include DEVICONS/java.puml
 
 LAYOUT_TOP_DOWN()
 LAYOUT_WITH_LEGEND()
@@ -15,26 +16,25 @@ Person(p1, "Passenger", "Primary Actor")
 
 Person(p2, "Dispatcher", "Secondary Actor")
 
-System(FMS, "Fleet Management System", "Robotaxi System")
+System_Ext(Map, "Map", "3rd party map")
 
 Rel(p1, p2, "Request/Cancel a ride", "Cellular Network")
 
 System_Boundary(FMS, "Fleet Management System") {
-    Container(Web, "Java", "Web Application", "Allow user to view, enter and edit ride request information")
-    Container(API, "API", "Java", "Send commands to and query vehicle state from the whole fleet")
+    Container(Web, "Web Application", "JavaScript", "Allow an authenticated user to view, enter and edit ride request information")
+    Container(API, "API", "C++ / Python / Java", "Send commands to and query vehicle state from the whole fleet", $sprite="java")
     ContainerDb(db, "Database", "Mongo DB", "Holds all data and metadata for passenger, ride, and vehicle", $sprite="msql_server")
 }
 
 Boundary(b2, "Robotaxi Fleet") {
-    Container(robo1, "Robotaxi [1]", "Robotaxi System", "C++")
-    Container(robo2, "Robotaxi [2]", "Robotaxi System", "C++")
-    Container(robon, "Robotaxi [N]", "Robotaxi System", "C++")
+    Container_Ext(robo1, "Robotaxi [No. 1]", "C++", "An autonomous driving system that can accept and execute ride requests")
+    Container_Ext(robo2, "Robotaxi [No. 2]", "", "...")
+    Container_Ext(robon, "Robotaxi [No. n]", "", "...")
 }
 
 Rel(p2, Web, "Enter/Remove a ride request", "https")
-
+Rel(Web, API, "Send ride request/change messages", "https")
 Rel(API, db, "Read/Write data", "JDBC")
-
 
 Rel(API, robo1, "Assign/Cancel a job", "Cellular")
 Rel(API, robo2, "...", "Cellular")
@@ -43,6 +43,8 @@ Rel(API, robon, "...", "Cellular")
 Rel(API, robo1, "Query vehicle state", "Cellular")
 Rel(API, robo2, "...", "Cellular")
 Rel(API, robon, "...", "Cellular")
+
+Rel(API, Map, "Query/Retrieve map data", "TBD")
 
 footer drawn with PlantUML v. %version() and C4-PlantUML v. C4Version()
 
