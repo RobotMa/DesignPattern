@@ -1,5 +1,4 @@
 @startuml
-!include  https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 !include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
 
 LAYOUT_WITH_LEGEND()
@@ -17,15 +16,16 @@ System_Ext(robo2, "Robotaxi [2]",  "Secondary Actor")
 System_Ext(robon, "Robotaxi [N]",  "Secondary Actor")
 
 
-Rel(p1, p2, "Request a ride", "phone call")
-Rel(p1, p2, "Cancel a ride", "phone call")
+Rel(p1, p2, "Request/Cancel a ride")
 
-Rel(p2, FMS, "Enter a ride request", "Console / Web")
-Rel(p2, FMS, "Remove a ride request", "Console / Web")
+Rel(p2, FMS, "Enter/Remove a ride request")
 
-Rel(FMS, robo1, "Association", "Dispatch a robotaxi")
-Rel(FMS, robo2, "Association", "Dispatch a robotaxi")
-Rel(FMS, robon, "Association", "Dispatch a robotaxi")
+Rel(FMS, robo1, "Assign/Cancel a job")
+Rel(FMS, robo2, "Assign/Cancel ...")
+Rel(FMS, robon, "Assign/Cancel ...")
 
+Rel(FMS, robo1, "Query/Retrieve vehicle state")
+Rel(FMS, robo2, "Query/Retrieve ...")
+Rel(FMS, robon, "Query/Retrieve ...")
 
 @enduml
