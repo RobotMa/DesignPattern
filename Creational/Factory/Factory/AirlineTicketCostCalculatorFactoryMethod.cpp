@@ -44,8 +44,6 @@ public:
 
 private:
   const double costPerMile_usd_{0.75};
-
-  friend class AirlineTicketCalculatorFactory;
 };
 
 class DeltaAirlineCalculator final : public AirlineCalculatorAbstract {
@@ -73,7 +71,6 @@ public:
 
 private:
   const double costPerMile_usd_{0.5};
-  friend class AirlineTicketCalculatorFactory;
 };
 
 class SouthwestAirlineCalculator final : public AirlineCalculatorAbstract {
@@ -86,8 +83,6 @@ public:
 
     return costPerMile_usd_ * miles;
   }
-
-  friend class AirlineTicketCalculatorFactory;
 
 private:
   const double costPerMile_usd_{1.0};
