@@ -15,11 +15,9 @@ abstract class Person {
 }
 
 class Passenger extends Person {
-  +requestRide(currentLocation: Location, destination: Location): RideRequest
 }
 
 class Dispatcher extends Person {
-  +assignTaxi(request: RideRequest): void
 }
 
 struct RideRequest {
@@ -35,21 +33,18 @@ struct Location {
   +longitude: double
 }
 
-Passenger --> RideRequest
-RideRequest --> Passenger
-RideRequest --> Location
-Dispatcher --> RideRequest
-
 node WebApplication {
 }
+
+Dispatcher -> RideRequest : "Enter/Remove a ride request"
+RideRequest -> WebApplication
 
 class Scheduler {
   -rideRequests: std::priority_queue<RideRequest>
   -fleetState: std::priority_queue<VehicleState>
-  -fleetStateTracker: FleetStateTracker
-  -commander: Commander
   +addRideRequests(rideRequest: RideRequest): void
-  +scheduleRideRequests(): List<RideRequest>
+  +updateFleetStates(): void
+  +assignTaxiToRideRequest(): std::pair<uuid, uuid> // <vehicleId, rideRequestId>
 }
 
 struct Route {
@@ -63,24 +58,28 @@ Route -> Location
 
 class Router {
   -map: Map
+  -laneGraph: LaneGraph
   +generateRoute(startLocation: Location, endLocation: Location): Route
-  +estimateTime(route: Route): int
+  +getWaitTime(curLocation: Location, startLocation: Location): double
+  {static} getTravelTime(route: Route): double
 }
 
 Router -> Route : "Generate route"
 
-class FleetStateTracker {
-  +vehicleStates: std::unordered_map<uuid, VehicleState>
-  +queryVehicleState(vehicleId: int): VehicleState
-  +getLocation(vehicleId: int): Location
-  +getSpeed(vehicleId: int): double
-  +getOperationStage(vehicleId: int): string
+class PassengerTracker {
+  -passengerStates: std::unordered_map<uuid, PassengerState>
+  -passengerVehicleMap: std::unordered_map<uuid, uuid> // <passengerId, vehicleId>
+  +getLocation(passengerId: uuid): Location
+  +getWaitTime(passengerId: uuid): uuid): double
+  +getTravelTime(passengerId: uuid): uuid): double
 }
 
-class Dispatcher {
-  +routes: Map<int, Route>
-  +callRouter(startLocation: Location, endLocation: Location): Route
-  +dispatchRoutes(route: Route, vehicleId: int): void
+class FleetStateTracker {
+  +vehicleStates: std::unordered_map<uuid, VehicleState>
+  +queryVehicleState(vehicleId: uuid): VehicleState
+  +getLocation(vehicleId: uuid): Location
+  +getSpeed(vehicleId: uuid): double
+  +getOperationStage(vehicleId: uuid): TaxiStatus
 }
 
 database Database {
@@ -110,14 +109,14 @@ Robotaxi --> Vehicle : has a system
 Vehicle -> VehicleState
 
 class Commander {
-  -routes: <int, Route>
-  +callRouter(startLocation: Location, endLocation: Location): Route
-  +dispatchRoute(route: Route, vehicleId: uuid): void
+  -routeList: std::vector<std::pair<uuid, Route>>
+  +callRouter(vehicleRequestList: std::vector<std::pair<uuid, uuid>>): std::vector<uuid, Route> // <vehicleId, route>
+  +dispatchRoutes(routeList: std::vector<std::pair<uuid, Route>>): void
 }
 
 VehicleState -> TaxiStatus
 WebApplication --> Scheduler : "Send ride request/change messages"
-Scheduler --> FleetStateTracker : "Read vehicle state"
+Scheduler --> FleetStateTracker : "Read fleet state"
 FleetStateTracker --> Database : "Read/Write data"
 Scheduler --> Commander : "Send/Read priority queue of ride requests"
 Commander --> Router
