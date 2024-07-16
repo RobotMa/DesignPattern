@@ -19,22 +19,22 @@ Boundary(API, "API Components") {
     Component(Scheduler, "Scheduler", "C++", "Track and schedule ride requests using a priority queue-like mechanism")
     Component(Router, "Router", "C++", "Generate a street segment level route for a vehicle for vehicle dispatch and time estimation")
     Component(FST, "FleetStateTracker", "C++", "Query the vehicle state information that is local such as location, speed and operation stage")
-    Component(Dispatcher, "Dispatcher", "C++", "Call router and dispatch routes to the fleet")
+    Component(Commander, "Commander", "C++", "Call router and dispatch routes to the fleet")
 }
-ContainerDb(db, "Database", "Mongo DB", "Holds all data and metadata for passenger, ride, and vehicle", $sprite="msql_server")
+ContainerDb(db, "Database", "Mongo DB", "Holds all data and metadata for passenger, ride, and vehicle. Depending on the size of the data, hardware disks might be sufficient", $sprite="msql_server")
 
 Boundary(b2, "Robotaxi Fleet") {
-    Component(robo1, "Robotaxi [No. 1]", "C++", "An autonomous driving system that can accept and execute ride requests")
+    Component_Ext(robo1, "Robotaxi [No. 1]", "C++", "An autonomous driving system that can accept and execute ride requests")
 }
 
 Rel(Web, Scheduler, "Send ride request/change messages", "https")
 Rel(Scheduler, FST, "Read", "Vehicle state of each vehicle")
 Rel(FST, db, "Read/Write data", "JDBC")
-Rel(Scheduler, Dispatcher, "Send / Read", "A priority queue of ride requests / Time estimation")
+Rel(Scheduler, Commander, "Send / Read", "A priority queue of ride requests / Time estimation")
 
-Rel(Dispatcher, Router, "Uses", "Street segment level route")
+Rel(Commander, Router, "Uses", "Street segment level route")
 
-Rel(Dispatcher, robo1, "Assign/Cancel a job", "Cellular")
+Rel(Commander, robo1, "Send waypoints and end goal pose", "Cellular")
 Rel(FST, robo1, "Query vehicle state", "Cellular")
 
 footer drawn with PlantUML v. %version() and C4-PlantUML v. C4Version()

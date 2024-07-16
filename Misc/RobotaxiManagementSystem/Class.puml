@@ -1,34 +1,128 @@
 @startuml
-'https://plantuml.com/component-diagram
 
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
+enum TaxiStatus {
+  IN_ROUTE_TO_PICKUP
+  PICKUP
+  IN_ROUTE_TO_DROPOFF
+  DROPOFF
+  ROAMING
 }
 
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
+abstract class Person {
+  +id: uuid
+  +name: string
+  +phoneNumber: string
 }
 
-cloud {
-  [Example 1]
+class Passenger extends Person {
+  +requestRide(currentLocation: Location, destination: Location): RideRequest
 }
 
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
+class Dispatcher extends Person {
+  +assignTaxi(request: RideRequest): void
 }
 
+struct RideRequest {
+  +id: uuid
+  +passenger: Passenger
+  +currentLocation: Location
+  +destination: Location
+}
 
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
+struct Location {
+  +name: string
+  +latitude: double
+  +longitude: double
+}
+
+Passenger --> RideRequest
+RideRequest --> Passenger
+RideRequest --> Location
+Dispatcher --> RideRequest
+
+node WebApplication {
+}
+
+class Scheduler {
+  -rideRequests: std::priority_queue<RideRequest>
+  -fleetState: std::priority_queue<VehicleState>
+  -fleetStateTracker: FleetStateTracker
+  -commander: Commander
+  +addRideRequests(rideRequest: RideRequest): void
+  +scheduleRideRequests(): List<RideRequest>
+}
+
+struct Route {
+  +id: uuid
+  +startLocation: Location
+  +endLocation: Location
+  +waypoints: std::vector<Location>
+}
+
+Route -> Location
+
+class Router {
+  -map: Map
+  +generateRoute(startLocation: Location, endLocation: Location): Route
+  +estimateTime(route: Route): int
+}
+
+Router -> Route : "Generate route"
+
+class FleetStateTracker {
+  +vehicleStates: std::unordered_map<uuid, VehicleState>
+  +queryVehicleState(vehicleId: int): VehicleState
+  +getLocation(vehicleId: int): Location
+  +getSpeed(vehicleId: int): double
+  +getOperationStage(vehicleId: int): string
+}
+
+class Dispatcher {
+  +routes: Map<int, Route>
+  +callRouter(startLocation: Location, endLocation: Location): Route
+  +dispatchRoutes(route: Route, vehicleId: int): void
+}
+
+database Database {
+'  +data: Map<string, List<Record>>
+'  +readData(query: string): List<Record>
+'  +writeData(record: Record): void
+}
+
+artifact Robotaxi {
+}
+
+class Vehicle {
+  -vehicleState: VehicleState
+  -route: Route
+  +acceptRideRequest(route: Route): bool
+  +executeRideRequest(): void
+}
+
+struct VehicleState {
+  +id: uuid
+  +curLocation: Location
+  +speed: double
+  +taxiStatus: TaxiStatus
+}
+
+Robotaxi --> Vehicle : has a system
+Vehicle -> VehicleState
+
+class Commander {
+  -routes: <int, Route>
+  +callRouter(startLocation: Location, endLocation: Location): Route
+  +dispatchRoute(route: Route, vehicleId: uuid): void
+}
+
+VehicleState -> TaxiStatus
+WebApplication --> Scheduler : "Send ride request/change messages"
+Scheduler --> FleetStateTracker : "Read vehicle state"
+FleetStateTracker --> Database : "Read/Write data"
+Scheduler --> Commander : "Send/Read priority queue of ride requests"
+Commander --> Router
+Commander --> Robotaxi: "Send a route to Robotaxi"
+FleetStateTracker --> Robotaxi : "Query vehicle state"
+
 
 @enduml
