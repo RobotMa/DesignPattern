@@ -16,6 +16,7 @@ title Component diagram for Fleet Management System
 Container(Web, "Web Application", "JavaScript", "Allow an authenticated user to view, enter and edit ride request information")
 
 Boundary(API, "API Components") {
+    Component(PassengerTracker, "PassengerTracker", "C++", "Track the latest info of passengers")
     Component(Scheduler, "Scheduler", "C++", "Track and schedule ride requests using a priority queue-like mechanism")
     Component(Router, "Router", "C++", "Generate a street segment level route for a vehicle for vehicle dispatch and time estimation")
     Component(FST, "FleetStateTracker", "C++", "Query the vehicle state information that is local such as location, speed and operation stage")
