@@ -10,7 +10,7 @@
 LAYOUT_TOP_DOWN()
 LAYOUT_WITH_LEGEND()
 
-title System Context diagram for Internet Banking System
+title Container diagram for Internet Banking System
 
 Person(p1, "Passenger", "Primary Actor")
 
