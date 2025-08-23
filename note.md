@@ -5,7 +5,7 @@ Gamma Ctegorization
 - Explict (constructor) v.s. implicit (Dependency Injection, Reflection, ect)
 - wholesale (single statement) v.s. piecewise (step by step)
 
-#Structual Patterns
+#Structural Patterns
 - Concerned with the structure
 - Many are wrappers to mimic the underlying class's interface
 - Stress the importance of good API design
