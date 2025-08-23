@@ -1,0 +1,24 @@
+# Auto-generated BUILD file from CMakeLists.txt
+load("@bazel_tools//tools/build_defs/cc:defs.bzl", "cc_binary", "cc_test")
+
+cc_binary(
+    name = "mainSingleton",
+    srcs = [
+        "DatabaseSingleton.cpp",
+    ],
+)
+
+cc_binary(
+    name = "Multiton",
+    srcs = [
+        "Multiton.cpp",
+    ],
+)
+
+cc_binary(
+    name = "SingletonTests",
+    srcs = [
+        "SingletonTests.cpp",
+    ],
+)
+
