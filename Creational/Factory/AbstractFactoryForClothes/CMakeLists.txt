@@ -1,6 +1,0 @@
-add_library(ClothesFactory MegaClothesFactory.cpp)
-
-add_executable(AbstractFactoryForClothes AbstractFactoryForClothes.cpp)
-target_link_libraries(AbstractFactoryForClothes ClothesFactory TopsVisualizer)
-
-add_subdirectory(ClothesVisualizer)

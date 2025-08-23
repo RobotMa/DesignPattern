@@ -1,5 +1,0 @@
-add_executable(StaticStrategy StaticStrategy.cpp)
-add_executable(DynamicStrategy DynamicStrategy.cpp)
-
-add_executable(StrategyCodingExercise StrategyCodingExercise.cpp)
-target_link_libraries(StrategyCodingExercise CONAN_PKG::gtest)

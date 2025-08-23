@@ -1,4 +1,0 @@
-add_executable(Memento Memento.cpp)
-
-add_executable(MementoCodingExercise MementoCodingExercise.cpp)
-target_link_libraries(MementoCodingExercise CONAN_PKG::gtest)
