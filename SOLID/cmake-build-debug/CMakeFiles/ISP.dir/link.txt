@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -rdynamic CMakeFiles/ISP.dir/Creational-ISP.cpp.o -o ISP 

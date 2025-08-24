@@ -1,4 +1,5 @@
-﻿template <class T> 
+﻿// when to use CRTP?
+template <class T> 
 struct Base
 {
     void interface()

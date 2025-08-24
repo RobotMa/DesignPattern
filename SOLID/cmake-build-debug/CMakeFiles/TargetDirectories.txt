@@ -1,7 +1,0 @@
-/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/CMakeFiles/DIP.dir
-/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/CMakeFiles/SRP.dir
-/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/CMakeFiles/ISP.dir
-/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/CMakeFiles/OCP.dir
-/home/roma/codingConfig/DesignPattern/SOLID/cmake-build-debug/CMakeFiles/LSP.dir
