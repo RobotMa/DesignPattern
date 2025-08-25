@@ -2,6 +2,13 @@
 
 This repository contains C++ implementations and notes for a wide variety of software design patterns, including classic patterns from the Gang of Four (GoF), SOLID principles, and advanced C++ idioms.
 
+First, you need to understand what's a design. Klaus Iglberger has a new and and complete angle to look at this.
+![Architecture_Design_Implementations.png](Images/Architecture_Design_Implementation.png)
+
+Guideline
+* The purpose of a design pattern is to introduce a fitting abstraction to a well known problem.
+* The name of a design pattern conveys the intent of the abstraction.
+
 ## Repository Structure
 
 - **Creational Patterns**: Object creation mechanisms, e.g., Builder, Factory, Singleton.
